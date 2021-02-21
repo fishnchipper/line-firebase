@@ -2,7 +2,7 @@
 function on(req, res, next) {
 
     console.log("++++ api ++++ {get} /service/settings called");
-    var renderData = {};
+    var renderData = {noncevalue: global.__nonce__};
 
     // render & return to client
     res.render('./service/settings', renderData, function(err, html) {
