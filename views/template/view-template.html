@@ -34,19 +34,6 @@
 <!-- end of views -->
 
 <!-- Templates -->
-<!-- Template for loader -->
-<script type="text/template" id="tmp-loader">
-    <div class="loader">
-        <div class="duo duo1">
-        <div class="dot dot-a"></div>
-        <div class="dot dot-b"></div>
-        </div>
-        <div class="duo duo2">
-        <div class="dot dot-a"></div>
-        <div class="dot dot-b"></div>
-        </div>
-    </div>
-</script>
 <script type="text/template" id="tmp-***">
 
 </script>
@@ -71,7 +58,7 @@
         function _nullDom(_destId) {
             $(`#${_destId}`).html("");
         }
-        function _chnageContent(_contentPath) {
+        function _loadContent(_contentPath) {
             Line_Service_Spinner.spin($(".container-fluid").get(0));
             Line_Firebase.view().getBlock(_contentPath)
                 .then((block)=> {
@@ -83,6 +70,12 @@
                     Line_Service_Spinner.stop();
                 })
         }
+        function _eHandlerClick(_id, _action, ..._arguments) {
+            $(`#${_id}`).click((e)=>{
+                e.preventDefault();
+                _action(..._arguments);
+            })
+        }
 
         // control codes go below
         //
@@ -90,6 +83,11 @@
         // Line_Service_Spinner.stop();
  
 
+        // main
+        //
+        function main() {
+
+        } main();
         //
         // end of control codes
 
