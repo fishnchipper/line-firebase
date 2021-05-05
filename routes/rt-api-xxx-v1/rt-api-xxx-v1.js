@@ -4,8 +4,8 @@ let router = express.Router();
 
 router.use(function (req, res, next) {
     req.requestTime = new Date().toISOString();
-    console.log("--- /xxx - request time: ", req.requestTime);
-    next();
+    console.log('[%s] api call - (%s) %s', req.requestTime, req.method, req.originalUrl)
+    next()
 });
 
 /**
